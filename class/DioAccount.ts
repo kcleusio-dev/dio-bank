@@ -21,11 +21,11 @@ export abstract class DioAccount {
     return this.balance
   }
   setBalance = (balance: number): void => {
-    this.balance = balance
+    this.balance += balance
   }
 
   withdraw = (value: number): void => {
-    if (this.validateStatus()) {
+    if (!this.validateStatus()) {
       console.log('Conta Inválida')
     } else if (value > this.balance) {
       console.log('Saldo insuficiente...')
